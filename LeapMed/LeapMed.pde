@@ -104,7 +104,7 @@ void draw(){
 
 void draw0(){ //Move finger to middle to begin.
   alpha = 543;
-  alpha2 = -80;
+  alpha2 =0;
   image(bg,0,0);
   image(bg1,0,alpha);
   image(logo,0,alpha2);
@@ -150,21 +150,21 @@ void draw1(){
   if(fromPage == 0){
     currentScreen = iscreen;
     if(alpha2 < -420){
-      if (alpha > 224 ) { alpha-=delta; }
+      if (alpha > 0 ) { alpha-=delta; }
     }
     alpha1 = 0;
-    if(alpha2 > -600){alpha2-=delta;}
+    if(alpha2 > -800){alpha2-=delta;}
   }
   if(fromPage == 3){
     if(alpha2 < -420){
-      if (alpha > 224 ) { alpha-=delta; }
+      if (alpha > 0 ) { alpha-=delta; }
     }
     alpha1 = 0;
     if(alpha2 > -600){alpha2-=delta;}
   }
   if(fromPage == 2){
     if(alpha2 < -600){alpha2 += delta;}
-    if(alpha < 224) {alpha += delta;}
+    if(alpha < 0) {alpha += delta;}
     if(alpha1 < 1){alpha1 += delta;}
     if(alphaText < 963){alphaText += delta*4;}
     if(alpha3 < 721){alpha3 += delta*4;
@@ -173,7 +173,7 @@ void draw1(){
   }
   if(fromPage == 99){ //confirm
     if(alpha2 < -600){alpha2 += delta;}
-    if(alpha < 224) {alpha += delta;}
+    if(alpha < 0) {alpha += delta;}
     if(alpha1 < 1){alpha1 += delta;}
     if(alphaText < 963){alphaText += delta;}
     if(alpha3 < 721){alpha3 += delta;
