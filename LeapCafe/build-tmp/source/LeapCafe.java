@@ -48,7 +48,7 @@ PImage ico, cursor;
 PImage ty,cartpage,cart,logo,current, qs1,qs2,qs3,qs4,qs5,qs6,up,down;
 PFont paper;
 int currentScreen = 0;
-int realCount, realCountQ, realCountS;
+int realCount = 5, realCountQ, realCountS;
 int count = 5, countQ = 1, countS = 1;
 int countdecrease, countQdecrease, countSdecrease, countQincrease, countSincrease;
 int countIncrease = 1;
@@ -424,15 +424,14 @@ public void draw2(){
 
 
         //quantity
-        if(hand.getStabilizedPosition().x < 353 &&
-          hand.getStabilizedPosition().y > 500){
+        if(hand.getStabilizedPosition().x < 303){
             countQdecrease = 1;
-            text("Decrease quantity " + realCountQ,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
+            text("Decrease quantity\n" + realCountQ,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
           countQdecrease = 0;
         }
-        if(hand.getStabilizedPosition().x < 353 &&
-          hand.getStabilizedPosition().y < 320){
+        if(hand.getStabilizedPosition().x < 403 &&
+          hand.getStabilizedPosition().x > 303){
             countQincrease = 1;
             text("Increase quantity\n" + realCountQ,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
@@ -440,15 +439,15 @@ public void draw2(){
         }
 
         //size
-        if(hand.getStabilizedPosition().x > 862 &&
-          hand.getStabilizedPosition().y > 520){
+        if(hand.getStabilizedPosition().x < 1100 &&
+          hand.getStabilizedPosition().x > 1000){
             countSdecrease = 1;
             text("Decrease size\n" + sizeName,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
           countSdecrease = 0;
         }
-        if(hand.getStabilizedPosition().x > 862 &&
-          hand.getStabilizedPosition().y < 320){
+        if(hand.getStabilizedPosition().x < 1000 &&
+          hand.getStabilizedPosition().x > 900){
             countSincrease = 1;
             text("Increase size " + sizeName,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
@@ -745,7 +744,6 @@ public void leapOnSwipeGesture(SwipeGesture g, int state){
 
   }
 }
-
   public void settings() {  size(1280,720);  smooth(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "LeapCafe" };

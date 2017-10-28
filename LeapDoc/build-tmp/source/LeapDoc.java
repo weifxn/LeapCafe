@@ -81,7 +81,7 @@ public void setup(){
   //fullScreen();
   
   bg = loadImage("covfefe1.png");
-  bg1 = loadImage("covfefe3cpy.png");
+  bg1 = loadImage("dragAndDrop.png");
   bg2 = loadImage("covfefe4.png");
   a1 = loadImage("black.png");
   a2 = loadImage("cappucino1.png");

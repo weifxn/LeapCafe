@@ -27,7 +27,7 @@ LeapMotion leap;
 PImage bg, bg1, bg2, coffee;
 PImage a1,a2,a3,a4,a5;
 PImage ico, cursor;
-PImage ty,cartpage,cart,logo,current, qs1,qs2,qs3,qs4,qs5,qs6,up,down;
+PImage ty,cartpage,cart,logo,current, qs1,qs2,qs3,qs4,qs5,qs6,up,down,numb,dnd;
 PFont paper;
 int currentScreen = 0;
 int realCount, realCountQ, realCountS;
@@ -59,7 +59,8 @@ Rain[] drops = new Rain[numDrops];
 void setup(){
   //fullScreen();
   size(1280,720);
-  bg = loadImage("covfefe1.png");
+
+  bg = loadImage("nth.png");
   bg1 = loadImage("covfefe3cpy.png");
   bg2 = loadImage("covfefe4.png");
   a1 = loadImage("black.png");
@@ -71,12 +72,12 @@ void setup(){
   qs2 = loadImage("c2.png");
   qs3 = loadImage("c3.png");
   qs4 = loadImage("c4.png");
-  qs5 = loadImage("c5.png");
+  qs5 = loadImage("currentNumberSlideUp.png");
   up = loadImage("up.png");
   down = loadImage("down.png");
   cursor = loadImage("cursor.png");
   logo = loadImage("logo.png");
-  cart = loadImage("2772.png");
+  cart = loadImage("nth.png");
   cartpage = loadImage("cart with confirm.png");
   ty = loadImage("Thank You Page.png");
   leap = new LeapMotion(this).allowGestures();
@@ -106,6 +107,7 @@ void draw0(){ //Move finger to middle to begin.
   alpha = 543;
   alpha2 =0;
   image(bg,0,0);
+  background(255);
   image(bg1,0,alpha);
   image(logo,0,alpha2);
   currentScreen = iscreen;
@@ -150,9 +152,8 @@ void draw1(){
   textAlign(CENTER);
   if(fromPage == 0){
     currentScreen = iscreen;
-    if(alpha2 < -420){
-      if (alpha > 0 ) { alpha-=delta; }
-    }
+    if(alpha2 < -420)
+    if (alpha > 0 ) { alpha-=delta; }
     alpha1 = 0;
     if(alpha2 > -800){alpha2-=delta;}
   }
@@ -213,82 +214,66 @@ void draw1(){
         }
         //noFill();
         //ellipse(hand.getStabilizedPosition().x,hand.getStabilizedPosition().y,70,70);
-        image(cursor,hand.getStabilizedPosition().x - 60,hand.getStabilizedPosition().y-60);
-        if(hand.getStabilizedPosition().x > 393 &&
-          hand.getStabilizedPosition().x < 454 &&
-          hand.getStabilizedPosition().y < 393 &&
-          hand.getStabilizedPosition().y > 250){
+        image(cursor,hand.getStabilizedPosition().x - 60,300);
+        hand.getStabilizedPosition().y = 290;
+        if(hand.getStabilizedPosition().x < 454){
             countdecrease = 1;
             position = 3;
             fill(0,0,0, 180);
-            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+160,125,240,20);
+            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);        }
+            text("Select \n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);        }
         else {
           position = 0;
         }
-        if(hand.getStabilizedPosition().x < 572 &&
-          hand.getStabilizedPosition().y < 393){
-            countdecrease = 1;
-            position = 4;
-            noStroke();
-            fill(0,0,0,180);
-            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+160,125,240,20);
-            fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
-        }
-        if(hand.getStabilizedPosition().x > 593 &&
-          hand.getStabilizedPosition().x < 672 &&
-          hand.getStabilizedPosition().y < 393 &&
-          hand.getStabilizedPosition().y > 250){
-            countdecrease = 1;
-            position = 5;
-            fill(0,0,0,180);
-            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+160,125,240,20);
-            fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
-            }
-        if(hand.getStabilizedPosition().x > 693 &&
-          hand.getStabilizedPosition().x < 772 &&
-          hand.getStabilizedPosition().y < 393 &&
-          hand.getStabilizedPosition().y > 250){
-            countdecrease = 1;
-            position = 6;
-            fill(0,0,0,180);
-            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+160,125,240,20);
-            fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
-            }
-        if(hand.getStabilizedPosition().x > 793 &&
-          hand.getStabilizedPosition().x < 872 &&
-          hand.getStabilizedPosition().y < 393 &&
-          hand.getStabilizedPosition().y > 250){
+        // if(hand.getStabilizedPosition().x > 493 &&
+        //   hand.getStabilizedPosition().x < 572){
+        //     countdecrease = 1;
+        //     position = 4;
+        //     noStroke();
+        //     fill(0,0,0,180);
+        //     rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
+        //     fill(255);
+        //     text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+        // }
+        // if(hand.getStabilizedPosition().x > 593 &&
+        //   hand.getStabilizedPosition().x < 672){
+        //     countdecrease = 1;
+        //     position = 5;
+        //     fill(0,0,0,180);
+        //     rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
+        //     fill(255);
+        //     text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+        //     }
+        // if(hand.getStabilizedPosition().x > 693 &&
+        //   hand.getStabilizedPosition().x < 772){
+        //     countdecrease = 1;
+        //     position = 6;
+        //     fill(0,0,0,180);
+        //     rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
+        //     fill(255);
+        //     text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+        //     }
+        if(hand.getStabilizedPosition().x > 793){
             countdecrease = 1;
             position = 7;
             fill(0,0,0,180);
-            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+160,125,240,20);
+            rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);    }
-        if(hand.getStabilizedPosition().x > 780){
-            position = 8;
-            text("Select\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
-            if(mousePressed == true){
-            realCount = 1;
-            countdecrease = 1;
-          }
-          if(hand.getStabilizedPosition().x < 500){
-            position = 9;
-            text("Select\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
-            if(mousePressed == true){
-            realCount = 1;
-            countdecrease = 1;
-          }
-        }
+            text("Select\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);    }
+        // if(hand.getStabilizedPosition().x > 993){
+        //     position = 8;
+        //     text("SHOW CART\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
+        //     if(mousePressed == true){
+        //     realCount = 1;
+        //     countdecrease = 1;
+          // }
+        
         }
       }
     }
   }
-}
+
 
 void draw2(){
   if (alpha > 0 ) {alpha-=delta; }

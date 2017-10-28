@@ -30,7 +30,7 @@ PImage ico, cursor;
 PImage ty,cartpage,cart,logo,current, qs1,qs2,qs3,qs4,qs5,qs6,up,down;
 PFont paper;
 int currentScreen = 0;
-int realCount, realCountQ, realCountS;
+int realCount = 5, realCountQ, realCountS;
 int count = 5, countQ = 1, countS = 1;
 int countdecrease, countQdecrease, countSdecrease, countQincrease, countSincrease;
 int countIncrease = 1;
@@ -220,7 +220,7 @@ void draw1(){
             fill(0,0,0, 180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);        }
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);        }
         else {
           position = 0;
         }
@@ -232,7 +232,7 @@ void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);
         }
         if(hand.getStabilizedPosition().x > 593 &&
           hand.getStabilizedPosition().x < 672){
@@ -241,7 +241,7 @@ void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);
             }
         if(hand.getStabilizedPosition().x > 693 &&
           hand.getStabilizedPosition().x < 772){
@@ -250,7 +250,7 @@ void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);
             }
         if(hand.getStabilizedPosition().x > 793 &&
           hand.getStabilizedPosition().x < 872){
@@ -406,15 +406,14 @@ void draw2(){
 
 
         //quantity
-        if(hand.getStabilizedPosition().x < 353 &&
-          hand.getStabilizedPosition().y > 500){
+        if(hand.getStabilizedPosition().x < 303){
             countQdecrease = 1;
-            text("Decrease quantity " + realCountQ,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
+            text("Decrease quantity\n" + realCountQ,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
           countQdecrease = 0;
         }
-        if(hand.getStabilizedPosition().x < 353 &&
-          hand.getStabilizedPosition().y < 320){
+        if(hand.getStabilizedPosition().x < 403 &&
+          hand.getStabilizedPosition().x > 303){
             countQincrease = 1;
             text("Increase quantity\n" + realCountQ,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
@@ -422,15 +421,15 @@ void draw2(){
         }
 
         //size
-        if(hand.getStabilizedPosition().x > 862 &&
-          hand.getStabilizedPosition().y > 520){
+        if(hand.getStabilizedPosition().x < 1100 &&
+          hand.getStabilizedPosition().x > 1000){
             countSdecrease = 1;
             text("Decrease size\n" + sizeName,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
           countSdecrease = 0;
         }
-        if(hand.getStabilizedPosition().x > 862 &&
-          hand.getStabilizedPosition().y < 320){
+        if(hand.getStabilizedPosition().x < 1000 &&
+          hand.getStabilizedPosition().x > 900){
             countSincrease = 1;
             text("Increase size " + sizeName,hand.getStabilizedPosition().x-8,hand.getStabilizedPosition().y+18);
         } else {
