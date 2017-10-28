@@ -240,7 +240,7 @@ public void draw1(){
             fill(0,0,0, 180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);        }
+            text("Select \n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);        }
         else {
           position = 0;
         }
@@ -278,7 +278,7 @@ public void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);    }
+            text("Select\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);    }
         // if(hand.getStabilizedPosition().x > 993){
         //     position = 8;
         //     text("SHOW CART\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);

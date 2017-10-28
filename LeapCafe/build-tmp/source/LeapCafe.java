@@ -238,7 +238,7 @@ public void draw1(){
             fill(0,0,0, 180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);        }
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);        }
         else {
           position = 0;
         }
@@ -250,7 +250,7 @@ public void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);
         }
         if(hand.getStabilizedPosition().x > 593 &&
           hand.getStabilizedPosition().x < 672){
@@ -259,7 +259,7 @@ public void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);
             }
         if(hand.getStabilizedPosition().x > 693 &&
           hand.getStabilizedPosition().x < 772){
@@ -268,7 +268,7 @@ public void draw1(){
             fill(0,0,0,180);
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+100,125,240,20);
             fill(255);
-            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);
+            text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+30);
             }
         if(hand.getStabilizedPosition().x > 793 &&
           hand.getStabilizedPosition().x < 872){
