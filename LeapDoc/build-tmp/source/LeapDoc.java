@@ -128,8 +128,6 @@ public void dropEvent(DropEvent theDropEvent) {
   println("isImage()\t"+theDropEvent.isImage());
   println("isURL()\t"+theDropEvent.isURL());
   
-  // if the dropped object is an image, then 
-  // load the image into our PImage.
   if(theDropEvent.isImage()) {
     println("### loading image ...");
     m = theDropEvent.loadImage();

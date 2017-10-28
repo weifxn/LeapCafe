@@ -128,7 +128,7 @@ public void draw0(){ //Move finger to middle to begin.
   image(logo,0,alpha2);
   currentScreen = iscreen;
   fill(255);
-  text("Pinch here to begin", width/2 - 10, height*3/4);
+  text("begin", width/2 - 10, height*3/4);
   timer(countdecrease);
 
   for (Hand hand : leap.getHands ()) {
@@ -158,6 +158,7 @@ public void draw0(){ //Move finger to middle to begin.
 
 public void draw1(){
   fill(0);
+  
   image(bg,0,alpha1);
   image(bg1,0,alpha);
   image(logo,0,alpha2);
@@ -178,10 +179,11 @@ public void draw1(){
       if (alpha > 0 ) { alpha-=delta; }
     }
     alpha1 = 0;
-    if(alpha2 > -600){alpha2-=delta;}
+    if(alpha2 > -800){alpha2-=delta;}
+
   }
   if(fromPage == 2){
-    if(alpha2 < -600){alpha2 += delta;}
+    if(alpha2 < -800){alpha2 += delta;}
     if(alpha < 0) {alpha += delta;}
     if(alpha1 < 1){alpha1 += delta;}
     if(alphaText < 963){alphaText += delta*4;}
@@ -190,7 +192,7 @@ public void draw1(){
       image(current,(width/2)-270-25,alpha3-35);}
   }
   if(fromPage == 99){ //confirm
-    if(alpha2 < -600){alpha2 += delta;}
+    if(alpha2 < -800){alpha2 += delta;}
     if(alpha < 0) {alpha += delta;}
     if(alpha1 < 1){alpha1 += delta;}
     if(alphaText < 963){alphaText += delta;}
@@ -243,10 +245,8 @@ public void draw1(){
         else {
           position = 0;
         }
-        if(hand.getStabilizedPosition().x > 493 &&
-          hand.getStabilizedPosition().x < 572 &&
-          hand.getStabilizedPosition().y < 393 &&
-          hand.getStabilizedPosition().y > 250){
+        if(hand.getStabilizedPosition().x < 572 &&
+          hand.getStabilizedPosition().y < 393){
             countdecrease = 1;
             position = 4;
             noStroke();
@@ -287,13 +287,21 @@ public void draw1(){
             rect(hand.getStabilizedPosition().x-40,hand.getStabilizedPosition().y+160,125,240,20);
             fill(255);
             text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);    }
-        if(hand.getStabilizedPosition().x > 993){
+        if(hand.getStabilizedPosition().x > 780){
             position = 8;
-            text("SHOW CART\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
+            text("Select\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
             if(mousePressed == true){
             realCount = 1;
             countdecrease = 1;
           }
+          if(hand.getStabilizedPosition().x < 500){
+            position = 9;
+            text("Select\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
+            if(mousePressed == true){
+            realCount = 1;
+            countdecrease = 1;
+          }
+        }
         }
       }
     }
@@ -487,14 +495,14 @@ public void draw3(){
   text("Size", width*2/5, alphaTitle);
   text("Quantity", width*3/5, alphaTitle);
   text("Price", width*4/5, alphaTitle);
+  text("     subtotal:", width*4/7,alphaTitle);
+  text("RM"+sumTotal,width*5/7,alphaTitle);
   for(int i = 0; i < order.size(); i++){
     Cart orders = order.get(i);
     orders.display();
   }
   timer(countdecrease);
-  text("     subtotal:", width*4/7,height*5/7);
-
-  text("RM"+sumTotal,width*5/7,height*5/7);
+  
   for (Hand hand : leap.getHands ()) {
     for (Finger finger : hand.getFingers()) {
       switch(finger.getType()){
