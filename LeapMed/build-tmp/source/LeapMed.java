@@ -407,7 +407,7 @@ public void draw2(){
             if(alpha3 > 150){alpha3-=delta;}
             //mousePressed == true
             //mousePressed == true
-            if(mousePressed == true){
+            if(hand.getPinchStrength()>.80f){
               realCount = 1;
               countdecrease = 1;
               }

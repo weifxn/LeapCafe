@@ -396,7 +396,7 @@ void draw2(){
             //mousePressed == true
             //mousePressed == true
             image(ico,hand.getStabilizedPosition().x,hand.getStabilizedPosition().y+50);
-            if(hand.getStabilizedPosition().y > 710){
+            if(hand.getPinchStrength()>.80){
               realCount = 1;
               countdecrease = 1;
               }
