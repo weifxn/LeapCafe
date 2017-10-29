@@ -221,13 +221,13 @@ void draw1(){
        
 
   if (hand.getStabilizedPosition().x < 500){
-    xaxis += 11;
-    yaxis += delta;
+    xaxis -= 11;
+    yaxis -= delta;
 
   }
   else if (hand.getStabilizedPosition().x > 780){
-    xaxis -= 11;
-    yaxis -= delta;
+    xaxis += 11;
+    yaxis += delta;
 
   }
         drinkName = getDrink(position);
@@ -247,7 +247,7 @@ void draw1(){
         }
         //noFill();
         //ellipse(hand.getStabilizedPosition().x,hand.getStabilizedPosition().y,70,70);
-        image(cursor,hand.getStabilizedPosition().x - 60,hand.getStabilizedPosition().y-60);
+        image(cursor,hand.getStabilizedPosition().x - 60,300);
         if(hand.getStabilizedPosition().x > 393 &&
           hand.getStabilizedPosition().x < 454 &&
           hand.getStabilizedPosition().y < 393 &&
@@ -307,7 +307,7 @@ void draw1(){
             text(drinkName + "\nRM" + drinkPrice + "\n" + realCount,hand.getStabilizedPosition().x-38,hand.getStabilizedPosition().y+90);    }
         if(hand.getStabilizedPosition().x > 993){
             position = 8;
-            text("SHOW CART\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
+            text("\n",hand.getStabilizedPosition().x-18,hand.getStabilizedPosition().y+75);
             if(mousePressed == true){
             realCount = 1;
             countdecrease = 1;
