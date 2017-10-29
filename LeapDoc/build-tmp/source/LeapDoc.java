@@ -72,6 +72,9 @@ int drinkPrice;
 int tempPosition;
 int sumTotal=0;
 
+  int xaxis = 1280;
+  int yaxis = 720;
+
 Rain r1;
 int numDrops = 40;
 Rain[] drops = new Rain[numDrops];
@@ -80,7 +83,7 @@ Rain[] drops = new Rain[numDrops];
 public void setup(){
   //fullScreen();
   
-  bg = loadImage("covfefe1.png");
+  bg = loadImage("nth.png");
   bg1 = loadImage("dragAndDrop.png");
   bg2 = loadImage("covfefe4.png");
   a1 = loadImage("black.png");
@@ -97,7 +100,7 @@ public void setup(){
   down = loadImage("down.png");
   cursor = loadImage("cursor.png");
   logo = loadImage("logo.png");
-  cart = loadImage("2772.png");
+  cart = loadImage("nth.png");
   cartpage = loadImage("cart with confirm.png");
   ty = loadImage("Thank You Page.png");
   leap = new LeapMotion(this).allowGestures();
@@ -137,17 +140,14 @@ public void dropEvent(DropEvent theDropEvent) {
 public void draw0(){ //Move finger to middle to begin.
   
   alpha = 543;
-  alpha2 = -80;
+  alpha2 = 0;
   image(bg,0,0);
   image(bg1,0,alpha);
   image(logo,0,alpha2);
   currentScreen = iscreen;
   fill(255);
-  text("Pinch here to begin", width/2 - 10, height*3/4);
+  text("begin", width/2 - 10, height*3/4);
   timer(countdecrease);
-  if(m !=null) {
-    image(m,0,0);
-  }
 
   for (Hand hand : leap.getHands ()) {
     for (Finger finger : hand.getFingers()) {
@@ -183,24 +183,31 @@ public void draw1(){
   }
   image(cart,width*7/8,alpha5,80,80);
   textAlign(CENTER);
+  imageMode(CENTER);
+  if(m !=null) {
+    image(m,width/2,height/2,xaxis,yaxis);
+  }
+  imageMode(CORNER);
+
+
   if(fromPage == 0){
     currentScreen = iscreen;
     if(alpha2 < -420){
-      if (alpha > 224 ) { alpha-=delta; }
+      if (alpha > 2 ) { alpha-=delta; }
     }
     alpha1 = 0;
-    if(alpha2 > -600){alpha2-=delta;}
+    if(alpha2 > -800){alpha2-=delta;}
   }
   if(fromPage == 3){
     if(alpha2 < -420){
-      if (alpha > 224 ) { alpha-=delta; }
+      if (alpha > 2 ) { alpha-=delta; }
     }
     alpha1 = 0;
-    if(alpha2 > -600){alpha2-=delta;}
+    if(alpha2 > -800){alpha2-=delta;}
   }
   if(fromPage == 2){
-    if(alpha2 < -600){alpha2 += delta;}
-    if(alpha < 224) {alpha += delta;}
+    if(alpha2 < -800){alpha2 += delta;}
+    if(alpha < 2) {alpha += delta;}
     if(alpha1 < 1){alpha1 += delta;}
     if(alphaText < 963){alphaText += delta*4;}
     if(alpha3 < 721){alpha3 += delta*4;
@@ -208,8 +215,8 @@ public void draw1(){
       image(current,(width/2)-270-25,alpha3-35);}
   }
   if(fromPage == 99){ //confirm
-    if(alpha2 < -600){alpha2 += delta;}
-    if(alpha < 224) {alpha += delta;}
+    if(alpha2 < -800){alpha2 += delta;}
+    if(alpha < 2) {alpha += delta;}
     if(alpha1 < 1){alpha1 += delta;}
     if(alphaText < 963){alphaText += delta;}
     if(alpha3 < 721){alpha3 += delta;
@@ -230,6 +237,18 @@ public void draw1(){
     for (Finger finger : hand.getFingers()) {
      switch(finger.getType()){
        case 1:
+       
+
+  if (hand.getStabilizedPosition().x < 500){
+    xaxis += 11;
+    yaxis += delta;
+
+  }
+  else if (hand.getStabilizedPosition().x > 780){
+    xaxis -= 11;
+    yaxis -= delta;
+
+  }
         drinkName = getDrink(position);
         drinkPrice = getPrice(position);
         if(position == 0){
@@ -771,7 +790,6 @@ public void leapOnSwipeGesture(SwipeGesture g, int state){
 
   }
 }
-
   public void settings() {  size(1280,720);  smooth(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "LeapDoc" };

@@ -48,7 +48,7 @@ PImage ico, cursor;
 PImage ty,cartpage,cart,logo,current, qs1,qs2,qs3,qs4,qs5,qs6,up,down,numb,dnd;
 PFont paper;
 int currentScreen = 0;
-int realCount, realCountQ, realCountS;
+int realCount = 3, realCountQ, realCountS;
 int count = 5, countQ = 1, countS = 1;
 int countdecrease, countQdecrease, countSdecrease, countQincrease, countSincrease;
 int countIncrease = 1;
@@ -90,7 +90,7 @@ public void setup(){
   qs2 = loadImage("c2.png");
   qs3 = loadImage("c3.png");
   qs4 = loadImage("c4.png");
-  qs5 = loadImage("currentNumberSlideUp.png");
+  qs5 = loadImage("c5.png");
   up = loadImage("up.png");
   down = loadImage("down.png");
   cursor = loadImage("cursor.png");
@@ -204,10 +204,6 @@ public void draw1(){
 
   rectMode(CENTER);
   timer(countdecrease);
-  image(up,width/2 + 305 +15, alphaText-140,60,60);
-  image(up,width/2 - 395 + 15, alphaText-140,60,60);
-  image(down,width/2 + 305 +15, alphaText+100,60,60);
-  image(down,width/2 - 395 +15, alphaText+100,60,60);
 
   text("Size:\n" + sizeName ,width/2 +350,alphaText);
   text("Quantity:\n"+realCountQ, width/2 - 350, alphaText);
@@ -311,13 +307,9 @@ public void draw2(){
   cupSize = realCountS;
   sizeName = cupSizeNames(cupSize);
   fill(0);
-  textAlign(CENTER);
-  text("Size:\n" + sizeName ,width/2 +350,alphaText);
-  text("Quantity:\n"+realCountQ, width/2 - 350, alphaText);
-  image(up,width/2 + 305 +15, alphaText-140,60,60);
-  image(up,width/2 - 395 + 15, alphaText-140,60,60);
-  image(down,width/2 + 305 +15, alphaText+120,60,60);
-  image(down,width/2 - 395 +15, alphaText+120,60,60);
+  if(position == 7){
+  text("2234",width/2-40,alphaText+40);
+  text("2210", width/2-40, alphaText+200); }
   if(alphaText > 420){
     alphaText-=delta;
   }

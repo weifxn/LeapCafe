@@ -30,7 +30,7 @@ PImage ico, cursor;
 PImage ty,cartpage,cart,logo,current, qs1,qs2,qs3,qs4,qs5,qs6,up,down;
 PFont paper;
 int currentScreen = 0;
-int realCount = 5, realCountQ, realCountS;
+int realCount = 3, realCountQ, realCountS;
 int count = 5, countQ = 1, countS = 1;
 int countdecrease, countQdecrease, countSdecrease, countQincrease, countSincrease;
 int countIncrease = 1;
@@ -376,7 +376,7 @@ void draw2(){
         }
 
         ico = getImage(position);
-        image(ico,hand.getStabilizedPosition().x,600);
+        image(ico,hand.getStabilizedPosition().x,hand.getStabilizedPosition().y);
 
         if(hand.getStabilizedPosition().y < 230 && hand.getStabilizedPosition().x > 453 && hand.getStabilizedPosition().x < 700){
             countdecrease = 1;

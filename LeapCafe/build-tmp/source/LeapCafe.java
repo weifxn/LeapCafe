@@ -394,7 +394,7 @@ public void draw2(){
         }
 
         ico = getImage(position);
-        image(ico,hand.getStabilizedPosition().x,600);
+        image(ico,hand.getStabilizedPosition().x,hand.getStabilizedPosition().y);
 
         if(hand.getStabilizedPosition().y < 230 && hand.getStabilizedPosition().x > 453 && hand.getStabilizedPosition().x < 700){
             countdecrease = 1;
