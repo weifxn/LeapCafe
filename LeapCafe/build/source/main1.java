@@ -77,6 +77,7 @@ Rain[] drops = new Rain[numDrops];
 public void setup(){
   
 //  size(1280,720);
+// load image
   bg = loadImage("covfefe1.png");
   bg1 = loadImage("covfefe3cpy.png");
   bg2 = loadImage("covfefe4.png");
